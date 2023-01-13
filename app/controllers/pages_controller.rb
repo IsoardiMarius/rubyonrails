@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  # ON RECUPERE LE PARAMS NAME DANS LE CONTROLLERS SALUT
   def salut
     @name = params[:name]
+    # On recupere le param name dans l'url et on le stock dans une variable
+    # @name pour pouvoir l'utiliser dans la view salut
   end
 
   def home; end

@@ -1,0 +1,68 @@
+<div class="post_div">
+<h1>Posts#index</h1>
+</div>
+
+<div class="row">
+<!--  Pour chaque posts dans @posts qui est défini dans le controller posts avec la méthode index
+      On créer une card. ici post nous permet d'avoir accès à toutes les propriétés-->
+  <% @posts.each do |post| %>
+
+<div class="col-lg-4 center mt-5" >
+    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    <h2 class="fw-normal"><%= post.title %></h2>
+    <p><%= post.content %></p>
+<!-- On récupere le timestamp et on le convertie en date/heure-->
+  <p>Modifier le à <%= post.created_at.to_date %> à <%= post.created_at.strftime("%H:%M") %></p>
+
+
+
+  <div class="btn-group">
+    <p>
+<!--      Ici on va créer un lien qui va nous permettre de voir le détail d'un post-->
+    <a href="<%= post_path(post.id) %>" class="btn btn-primary">Lire la suite</a>
+<!--      Ici on va créer un lien qui va nous permettre de modifier un post-->
+    <a href="<%= edit_post_path(post.id) %>" class="btn btn-primary ">Modifier</a>
+<!--      Ici on va créer un form avec un bouton qui va nous permettre de supprimer un post-->
+      <%= form_for post, url: post_path(post), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+        <%= f.submit 'Delete', class: 'btn btn-danger ml-1' %>
+      <% end %>
+    </p>
+
+
+
+
+  </div>
+  </div><!-- /.col-lg-4 -->
+  <% end %>
+  <p class="center">
+    <a class="btn btn-success" href="<%= new_post_path %>">Créer un post</a>
+  </p>
+
+</div><!-- /.row -->
+
+
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+<div class="row featurette mt-5">
+  <div class="col-md-7">
+    <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+    <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+  </div>
+  <div class="col-md-5">
+    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  </div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette mt-5">
+  <div class="col-md-7 order-md-2">
+    <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+    <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+  </div>
+  <div class="col-md-5 order-md-1">
+    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+  </div>
+</div>
