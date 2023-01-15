@@ -7,5 +7,8 @@ class PagesController < ApplicationController
     # @name pour pouvoir l'utiliser dans la view salut
   end
 
-  def home; end
+  def home
+    @posts = Post.all
+    # On recupere tous les posts, on les stock dans une variable @posts pour pouvoir les utiliser dans la view home
+  end
 end

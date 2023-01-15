@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   private
-
+  # On défini les params qu'on peut utiliser pour créer un post
   def post_params
     params.require(:post).permit(:title, :content)
   end
