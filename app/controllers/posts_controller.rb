@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @posts = Post.all # On recupere tous les posts, on les stock dans une variable @posts pour pouvoir les utiliser dans la view index
   end
 
-  # Cette page affiche le post en fonction de l'id dans l'url
+  # COMMENT Cette page affiche le post en fonction de l'id dans l'url
   def show
     @post = Post.find(params[:id])
     # On recupere le post en fonction de l'id dans l'url, on le
@@ -52,6 +52,6 @@ class PostsController < ApplicationController
   private
   # On défini les params qu'on peut utiliser pour créer un post
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content) # On défini les params qu'on peut utiliser pour créer un post
   end
 end
