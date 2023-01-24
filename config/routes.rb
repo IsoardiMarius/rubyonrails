@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
+  get 'categories/view'
+  get 'categories/destroy'
+  get 'categories/edit'
   devise_for :users
   # root est la page d'acceuil, l'url de la page d'acceuil est /,
   # on redirige vers le controller pages et la view home
@@ -11,4 +16,5 @@ Rails.application.routes.draw do
   delete 'posts/:id', to: 'posts#destroy', as: :delete_post
   resources :posts
   resources :utilisateurs
+  resources :categories
 end
